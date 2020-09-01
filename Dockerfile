@@ -1,10 +1,6 @@
-FROM alpine:3.12 AS builder
+FROM debian:stable-slim
 ENV ZOLA_VERSION v0.11.0
-RUN apk add curl tar
-RUN mkdir -p /workdir
-WORKDIR /workdir
+RUN apt-get update
+RUN apt-get install -y curl tar 
 RUN curl -L https://github.com/getzola/zola/releases/download/$ZOLA_VERSION/zola-$ZOLA_VERSION-x86_64-unknown-linux-gnu.tar.gz | tar xz
-
-FROM scratch
-COPY --from=builder /workdir .
-ENTRYPOINT [ "/usr/bin/zola" ]
+RUN mv ./zola /usr/local/bin
