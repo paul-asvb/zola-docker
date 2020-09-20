@@ -1,6 +1,6 @@
 # Zola Dockerfile
 
-Simple Dockerfile i need to build zola in the CI.
+Simple Dockerfile for running zola in the CI.
 
 [zola on dockerhub](https://hub.docker.com/repository/docker/asvbpreaubv/zola-docker/tags?page=1)
 
